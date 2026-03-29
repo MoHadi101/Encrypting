@@ -1,37 +1,21 @@
+Simple Substitution Cipher:
 
-import random
-import string
+A basic Python script that encrypts and decrypts text using a shuffled character substitution method.
 
+How it works:
 
-chars = " " + string.punctuation + string.ascii_letters + string.digits
+Creates a character set (letters, numbers, punctuation + space)
+Generates a random shuffled "key" mapping
 
-chars = list(chars) # convert string to list
-# random.shuffle(chars) # shuffle the list
-key = chars.copy() # create a copy of the list to use as the key
+-    Encryption: swaps each character with its key counterpart
+-    Decryption: reverses the process using the same key
 
-random.shuffle(key) # shuffle the key list
+Features:
 
-# print(f"chars: {chars}")
-# print(key)
-
-# encryption
-plain_text = input("Enter the text to encrypt: ")
-cipher_text = ""
-
-for letter in plain_text:
-    index = chars.index(letter) # find the index of the letter in the chars list
-    cipher_text += key[index] # add the corresponding letter from the key list to the cipher text
-
-print(f"Oringinal text: {plain_text}")
-print(f"encrypted text: {cipher_text}")
+Interactive input for both encrypt/decrypt
+One-to-one character substitution (same length input/output)
+Random key generation on each run
 
 
-# decryption
-cipher_text = input("Enter the text to encrypt: ")
-plain_text = ""
+-->   NOTE: This is for educational purposes only—simple substitution ciphers are easily broken and not secure for real use.
 
-for letter in cipher_text:
-    index = key.index(letter) # find the index of the letter in the key list
-    plain_text += chars[index] # add the corresponding letter from the chars list to the plain text
-print(f"ecrypted text: {cipher_text}")
-print(f"Oringinal text: {plain_text}")
